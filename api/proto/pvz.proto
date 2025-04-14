@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "ops_service/api/proto;proto";
+
+service PickupPointService {
+  rpc GetAllPickupPoints(GetAllPickupPointsRequest) returns (GetAllPickupPointsResponse) {}
+}
+
+message GetAllPickupPointsRequest {
+  // Empty request
+}
+
+message PickupPoint {
+  int32 id = 1;
+  string registered_at = 2;
+  string city = 3;
+}
+
+message GetAllPickupPointsResponse {
+  repeated PickupPoint pickup_points = 1;
+} 
